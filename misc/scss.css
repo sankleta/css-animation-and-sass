@@ -11,15 +11,30 @@
   $color-text-light: #eee;
   $width-button: 150px;
   
+  @mixin clearfix{
+    &::after{
+      content: "";
+      clear: both;
+      display: table;
+    }
+  }
+  
+  @mixin style-link-text($color) {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $color;
+  }
+  
+  @function divide($a, $b) {
+    @return $a / $b;
+  }
+  
+  /* using function, units trick */
   nav {
-    margin: 30px;
+    margin: divide(60, 2) * 1px;
     background-color: $color-primary;
     
-    &::after{
-    content: "";
-    clear: both;
-    display: table;
-    }
+    @include clearfix;
   }
   
   
@@ -37,9 +52,7 @@
         margin: 0;
       }
       a:link {
-        text-decoration: none;
-        text-transform: uppercase;
-        color: $color-text-dark;
+        @include style-link-text($color-text-dark);
       }
     } 
   }
@@ -48,20 +61,19 @@
     float: right;
   }
   
-  .btn-main:link,
-  .btn-hot:link {
+  /* extend */
+  %btn-placeholder{
     padding: 10px;
     display: inline-block;
     text-align: center;
     border-radius: 100px;
-    text-decoration: none;
-    text-transform: uppercase;
     width: $width-button;
-    color: $color-text-light;
+    @include style-link-text($color-text-light);
   }
   
   .btn-main {
     &:link {
+      @extend %btn-placeholder;
       background-color: $color-secondary;
     }
     
@@ -74,6 +86,7 @@
   .btn-hot {
     &:link {
       background-color: $color-tertiary;
+      @extend %btn-placeholder;
     }
     
     /*calculate color*/
