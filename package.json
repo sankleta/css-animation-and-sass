@@ -1,0 +1,22 @@
+{
+  "name": "notours",
+  "version": "1.0.0",
+  "description": "Landing page for notours",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sankleta/css-animation-and-sass.git"
+  },
+  "author": "Tanya Kozel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sankleta/css-animation-and-sass/issues"
+  },
+  "homepage": "https://github.com/sankleta/css-animation-and-sass#readme",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  }
+}
